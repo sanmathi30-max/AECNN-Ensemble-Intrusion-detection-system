@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AE-CNN NIDS Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-200 flex h-screen overflow-hidden">
+
+    <aside class="w-64 bg-slate-800 border-r border-slate-700 flex flex-col">
+        <div class="p-6 border-b border-slate-700">
+            <h1 class="text-xl font-bold text-blue-400"><i class="fa-solid fa-shield-halved mr-2"></i>AE-CNN NIDS</h1>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="/dashboard" class="flex items-center p-3 rounded-lg hover:bg-slate-700 transition">
+                <i class="fa-solid fa-chart-line w-8"></i> Dashboard
+            </a>
+            <a href="/reports" class="flex items-center p-3 rounded-lg hover:bg-slate-700 transition">
+                <i class="fa-solid fa-file-contract w-8"></i> Analysis Reports
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-700 text-xs text-slate-500">
+            v1.0.4 - AE-CNN Ensemble Engine
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col overflow-y-auto">
+        <header class="h-16 bg-slate-800 border-b border-slate-700 flex items-center justify-between px-8">
+            <span class="font-medium">System Status: <span class="text-green-500">● Active</span></span>
+            <div class="flex items-center space-y-4">
+                <i class="fa-solid fa-bell text-slate-400 cursor-pointer hover:text-white"></i>
+                <div class="w-8 h-8 rounded-full bg-blue-600 ml-4"></div>
+            </div>
+        </header>
+        
+        <section class="p-8">
+            {% block content %}{% endblock %}
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE-CNN Intrusion Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-900 text-white font-sans">
+    <div class="container mx-auto p-8">
+        <header class="mb-10 border-b border-slate-700 pb-5">
+            <h1 class="text-3xl font-bold text-blue-400">AE-CNN Ensemble</h1>
+            <p class="text-slate-400 text-sm">Hybrid Deep Learning Network Intrusion Detection System</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-700">
+                <h2 class="text-xl font-semibold mb-4">Network Traffic Input</h2>
+                <p class="text-xs text-slate-400 mb-4">Paste 80+ comma-separated features below:</p>
+                <textarea id="featureInput" rows="8" 
+                    class="w-full bg-slate-900 border border-slate-600 rounded-lg p-3 text-sm text-green-400 focus:ring-2 focus:ring-blue-500 outline-none"
+                    placeholder="0.0, 0.54, 1.2, ..."></textarea>
+                <button onclick="analyzeTraffic()" 
+                    class="mt-4 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-lg transition duration-200">
+                    Run AE-CNN Analysis
+                </button>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-xl shadow-lg border border-slate-700">
+                <h2 class="text-xl font-semibold mb-4">Classification Result</h2>
+                <div id="resultPlaceholder" class="flex flex-col items-center justify-center h-64 text-slate-500">
+                    <p>Awaiting input...</p>
+                </div>
+                
+                <div id="resultContent" class="hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="text-sm uppercase text-slate-400 tracking-widest">Detected Type:</span>
+                            <div id="predictionLabel" class="text-4xl font-black text-red-500">DOS</div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-sm text-slate-400">Confidence:</span>
+                            <div id="confidenceLabel" class="text-2xl font-mono">98.4%</div>
+                        </div>
+                    </div>
+                    <canvas id="confidenceChart" height="150"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
